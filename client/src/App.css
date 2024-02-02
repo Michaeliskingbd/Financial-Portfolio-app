@@ -1,0 +1,145 @@
+body {
+    background-color: #0c0032;
+    color: white;
+  
+}
+
+
+
+nav {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0rem 6rem;
+    color: #ffffff;
+    background-color: #1c0a52;
+}
+.nav-picture {
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    overflow: hidden;
+    background-color: aliceblue;
+}
+.nav-picture img {
+    width: 100%;
+}
+
+
+
+
+section {
+    padding: 0rem 6rem;
+    margin-bottom: 4rem;
+
+}
+
+.section-title {
+    margin: auto;
+    display: flex;
+    flex-direction: column;
+    width: fit-content;
+    align-items: center;
+    gap: .7rem;
+    margin-top: 2rem;
+    border: solid 1px #260d6e;
+    padding: 1rem 4rem;
+    border-radius: 5px;
+}
+.section-title h1 {
+    font-size: 2rem;
+    margin: 0;
+}
+.section-title h3 {
+    margin: 0;
+    font-size: 1.5rem;
+}
+span {
+    margin-bottom: 2rem;
+    font-size: .9rem;
+}
+.profile-picture {
+    width: 100px;
+    height: 100px;
+    border-radius: 50%;
+    overflow: hidden;
+    background-color: aliceblue;
+}
+.profile-picture img {
+    width: 100%;
+}
+
+.slider-container {
+    background-color: #464866;
+    width: fit-content;
+    padding: .5rem 2rem;
+    border-radius: 3px;
+    margin-bottom: 2rem;
+}
+
+
+
+.horizontal-bar-chart {
+    display: flex;
+    flex-direction: column;
+  }
+  
+  .bar-wrapper {
+    display: flex;
+    align-items: center;
+    margin-bottom: 8px;
+  }
+  
+  .bar {
+    height: 20px; /* Set the desired height */
+    background-color: #3498db; /* Set the desired color */
+  }
+  
+  .label {
+    margin-left: 8px;
+  }
+  
+
+
+@media screen and (max-width:769px) {
+
+
+section {
+    padding: 0rem 1rem;
+    margin-bottom: 4rem;
+}
+
+nav {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0rem 2rem;
+    color: #ffffff;
+    background-color: #1c0a52;
+}
+
+.nav-picture {
+    width: 30px;
+    height: 30px;
+    border-radius: 50%;
+    overflow: hidden;
+    background-color: aliceblue;
+}
+
+nav h1 {
+    font-size: 1rem;
+}
+.rad {
+    margin: auto ;
+    width: fit-content;
+    margin-top: 3rem;
+    text-align: center;
+    margin-bottom: 2rem;
+}
+
+
+}
+
+
+
+
