@@ -11,6 +11,8 @@ const Homepage = () => {
   const [portfolioData, setPortfolioData] = useState(null);
   const [riskScore, setRiskScore] = useState(0);
 
+
+
   const fetchPortfolioData = async () => {
     try {
       const response = await axios.get(`http://localhost:5000/api/portfolio/${riskScore}`);
@@ -64,10 +66,51 @@ const Homepage = () => {
       value: (value / totalSum) * 100,
     }));
 
+    const CustomTooltip = ({ active, payload }) => {
+      if (active && payload && payload.length) {
+        const data = payload[0].payload;
+        return (
+          <div className="custom-tooltip">
+            <p>{data.label}</p>
+            <p>{`Value: ${data.value.toFixed(2)}%`}</p>
+          </div>
+        );
+      }
+      return null;
+    };
 
-
-   
-
+    const getInvestmentSuggestions = () => {
+      if (!portfolioData) {
+        return 'Loading data...';
+      }
+    
+      const instruments = Object.keys(portfolioData.instrumentsWeight);
+    
+      const sortedSuggestions = instruments
+        .map((instrument) => ({
+          label: instrument,
+          value: portfolioData.instrumentsWeight[instrument],
+        }))
+        .sort((a, b) => b.value - a.value);
+    
+      return (
+        <div className="suggestion-container">
+          {sortedSuggestions.map((suggestion) => {
+            const percentage = suggestion.value;
+            const barStyle = {
+              width: `${percentage}%`,
+            };
+    
+            return (
+              <div key={suggestion.label} className="suggestion-bar-container">
+                <div className="suggestion-bar" style={barStyle}></div>
+                <span className="suggestion-label">{`${suggestion.label}: ${percentage.toFixed(2)}%`}</span>
+              </div>
+            );
+          })}
+        </div>
+      );
+    };
   return (
     <section>
       <div className='section-title'>
@@ -104,22 +147,25 @@ const Homepage = () => {
         {portfolioData && (
           <Tabs>
             <TabList>
-              <Tab>Radar Chart</Tab>
+              <Tab>Overview</Tab>
               <Tab>Bar Chart</Tab>
+              <Tab>Radar Chart</Tab>
             </TabList>
 
             <TabPanel>
-              <Chart options={chartOptions} series={chartSeries} type="radar" height={500} />
+            <div>
+              <p>{getInvestmentSuggestions()}</p>
+            </div>
             </TabPanel>
 
             <TabPanel>
               <div className="bar-chart-container">
-                <ResponsiveContainer width="100%" height={200}>
+                <ResponsiveContainer width="100%" height={400}>
                   <BarChart data={barChartDataPercentage}>
                     <CartesianGrid strokeDasharray="3 3" />
                     <XAxis dataKey="label" tick={{ ...barChartXAxisTickStyle }} />
                     <YAxis />
-                    <Tooltip formatter={(value) => `${value.toFixed(2)}%`} />
+                    <Tooltip content={<CustomTooltip />} />
                     <Legend />
                     <Bar dataKey="value" fill="#8884d8" />
                   </BarChart>
@@ -127,11 +173,19 @@ const Homepage = () => {
               </div>
             </TabPanel>
 
+            <TabPanel>
+              <Chart options={chartOptions} series={chartSeries} type="radar" height={500} />
+            </TabPanel>
+
+            
+
 
 
           </Tabs>
         )}
       </div>
+
+      
 
     </section>
   );

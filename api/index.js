@@ -34,6 +34,7 @@ Portfolio.find().then((result) => {
           .catch((error) => {
               console.error('Error uploading data:', error);
     
+              
           });
   } else {
       console.log('Data already exists. No need to upload.');
