@@ -53,7 +53,7 @@ const Homepage = () => {
 
   const getSliderColor = (value) => {
     const percentage = (value / 10) * 100;
-    const color = `linear-gradient(90deg,  #f32013 ${percentage}%, #4BB543 ${percentage}%)`;
+    const color = `linear-gradient(90deg,  #f32013 ${percentage}%, #3498db ${percentage}%)`;
     return color;
   };
 
@@ -114,7 +114,7 @@ const Homepage = () => {
   return (
     <section>
       <div className='section-title'>
-        <h3>User Profile</h3>
+       
         <div className='profile-picture'>
           <img src={avatar} alt='pp' />
         </div>
@@ -174,7 +174,7 @@ const Homepage = () => {
             </TabPanel>
 
             <TabPanel>
-              <Chart options={chartOptions} series={chartSeries} type="radar" height={500} />
+              <Chart options={chartOptions} series={chartSeries} type="radar" height={400} />
             </TabPanel>
 
             
