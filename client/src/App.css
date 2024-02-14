@@ -28,6 +28,10 @@ body {
     border-radius: 5px;
     border: 1px solid #301934;
     background-color: #36454F;
+    &:hover {
+      background-color: transparent;
+      border: 1px solid #4db5ff;
+    }
 
   }
 
@@ -39,6 +43,11 @@ body {
     transition: all 1s ease;
   }
   
+  .tabs-container:hover {
+    border: 1px solid #4db5ff;
+    background: transparent;
+  } 
+  
   span {
     margin-bottom: 0rem;
     font-size: 0.7rem;
@@ -49,8 +58,11 @@ body {
     height: 60px;
     border-radius: 50%;
     overflow: hidden;
-    background-color: #260d6e; 
+    background-color: #4db5ff; 
     border: 5px solid #3498db;
+    &:hover {
+      background-color: transparent;
+    }
   }
   
   .profile-picture img {
@@ -58,16 +70,17 @@ body {
   }
   
   .slider-container {
-    background-color: #464866;
+    background-color: transparent;
     width: fit-content;
     padding: 0.5rem 1rem;
     border-radius: 3px;
     margin-bottom: 2rem;
-    border: 1px solid #3498db;
+    border: 1px solid #4db5ff;
     transition: color 0.3s ease;
     animation: neon 2s infinite;
     &:hover {
       color: #ffffff;
+      background-color: transparent;
     }
     
   }
@@ -134,7 +147,7 @@ body {
   
   .suggestion-bar {
     height: 40px;
-    background-color: #3498db;
+    background-color: #4db5ff;
     border-radius: 4px;
     flex-grow: 1;
 

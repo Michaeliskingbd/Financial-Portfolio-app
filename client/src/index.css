@@ -2,6 +2,7 @@ body {
     font-family: "roboto";
     padding: 0;
     margin: 0;
+    background-image: url(../src/bg-texture.png);
 }
 html {
     padding: 0;

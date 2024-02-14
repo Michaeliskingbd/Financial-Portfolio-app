@@ -29,25 +29,18 @@ Portfolio.find().then((result) => {
       Portfolio.insertMany(Data)
           .then(() => {
               console.log('Data uploaded successfully');
-            
           })
           .catch((error) => {
-              console.error('Error uploading data:', error);
-    
-              
+              console.error('Error uploading data:', error);  
           });
   } else {
       console.log('Data already exists. No need to upload.');
-  
   }
-  //catch
 
 }).catch((error) => {
   console.error('Error checking data:', error);
 
 });
-
-
     app.get('/api/portfolio/:riskScore', async (req, res) => {
       const { riskScore } = req.params;
     
@@ -57,16 +50,12 @@ Portfolio.find().then((result) => {
         if (!portfolio) {
           return res.status(404).json({ error: 'Portfolio not found' });
         }
-
         res.json(portfolio);
-
       } catch (error) {
         console.error(error);
         res.status(500).json({ error: 'Internal Server Error' });
       }
     });
-
-
 app.listen(5000, () => {
   console.log("Port is listening");
 });
